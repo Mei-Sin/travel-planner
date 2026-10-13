@@ -1,0 +1,23 @@
+cat > ~/travel-planner/templates/result.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Itinerary</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef4fb; margin: 0; }
+        .container { max-width: 800px; margin: 40px auto; background: white;
+                     padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        pre { white-space: pre-wrap; font-family: Georgia, serif; font-size: 16px; line-height: 1.6; }
+        a { display: inline-block; margin-top: 20px; color: #1a5fb4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your {{ destination }} Itinerary</h1>
+        <pre>{{ itinerary }}</pre>
+        <a href="/">Plan another trip</a>
+    </div>
+</body>
+</html>
+EOF

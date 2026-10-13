@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Itinerary Planner</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef4fb; margin: 0; }
+        .container { max-width: 600px; margin: 50px auto; background: white;
+                     padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1a5fb4; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px;
+                                  border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; margin-top: 20px; padding: 12px; background: #1a5fb4;
+                 color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #144a8f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Travel Itinerary Planner</h1>
+        <p style="text-align:center">Tell us your trip details - the AI plans the rest!</p>
+        <form action="/plan" method="POST">
+            <label>Destination:</label>
+            <input type="text" name="destination" placeholder="e.g. Tokyo, Japan" required>
+
+            <label>Number of days:</label>
+            <input type="number" name="days" min="1" max="14" value="3" required>
+
+            <label>Budget:</label>
+            <select name="budget" required>
+                <option value="Budget (hostels, street food)">Budget</option>
+                <option value="Mid-range (3-star hotels, mix of dining)">Mid-range</option>
+                <option value="Luxury (5-star hotels, fine dining)">Luxury</option>
+            </select>
+
+            <label>Interests (comma separated):</label>
+            <textarea name="interests" rows="3" placeholder="e.g. food, temples, shopping, nightlife" required></textarea>
+
+            <button type="submit" onclick="this.innerText='Generating... please wait (may take ~30s)'">Generate My Itinerary</button>
+        </form>
+    </div>
+</body>
+</html>
